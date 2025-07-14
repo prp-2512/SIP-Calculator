@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SIP Calculator</title>
+    <link rel="stylesheet" href="index.css" />
+    <link rel="icon" href="image.png" />
+  </head>
+
+  <body>
+    <div class="main">
+      <div class="title">SIP Calculator</div>
+      <div class="mainpart">
+        <div class="useramount">
+            <label for="amount">Enter SIP Amount &nbsp;&nbsp;&nbsp; <input type="text" id="amount" placeholder="Enter the starting amount"></label>
+        </div>
+        <div class="usertenure">
+            <label for="tenure">Enter Tenure (in months)&nbsp;&nbsp;  <input type="number" id="tenure" placeholder="Enter tenure "></input></label>
+            
+        </div>
+        <div class="userrate">
+            <label for="rate">Enter Rate &nbsp;&nbsp;  <input type="number" id="rate" placeholder="Enter rate "></input></label>  
+        </div>
+        <div class="calculatebtn">
+        <button onclick="calculateSIP()">Calculate</button>
+</div>
+
+<div class="result" id="result"></div>
+
+       
+      </div>
+      
+    </div>
+    <script>
+  function calculateSIP() {
+    let monthly = parseFloat(document.getElementById("amount").value);
+    let months = parseInt(document.getElementById("tenure").value);
+
+    let annualRate = 12; // default assumed annual return (%)
+    let monthlyRate = annualRate / 12 / 100;
+
+    if (isNaN(monthly) || isNaN(months) || monthly <= 0 || months <= 0) {
+      document.getElementById("result").innerHTML = "Please enter valid SIP amount and tenure.";
+      return;
+    }
+
+    // SIP Formula: A = P * [ (1 + r)^n - 1 ] * (1 + r) / r
+    let maturity = monthly * ((Math.pow(1 + monthlyRate, months) - 1) * (1 + monthlyRate)) / monthlyRate;
+    let invested = monthly * months;
+    let gain = maturity - invested;
+
+    document.getElementById("result").innerHTML =
+      `<b>Total Invested:</b> ₹${invested.toFixed(2)}<br>` +
+      `<b>Maturity Amount:</b> ₹${maturity.toFixed(2)}<br>` +
+      `<b>Total Gain:</b> ₹${gain.toFixed(2)}`;
+  }
+</script>
+
+ </body>
+</html>

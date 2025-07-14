@@ -1,0 +1,114 @@
+
+ .main {
+    box-shadow: 5px 13px 10px grey;
+    margin: 10vh auto;
+    display: flex;
+    position: static;
+    height: auto;
+    width: 90%;
+    max-width: 750px;
+    border: black 4px solid;
+    flex-direction: column;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.title {
+    padding: 10px 0;
+    text-align: center;
+    font-family: copperplate;
+    letter-spacing: 5px;
+    font-size: 2rem;
+    width: 100%;
+    color: rgb(227, 251, 8);
+    background-color: cadetblue;
+}
+
+.mainpart {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    background-color: rgb(249, 236, 224);
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.useramount,
+.usertenure ,.userrate{
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 20px;
+    font-size: 1rem;
+    font-family: "rockwell";
+    padding: 15px;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+
+
+
+
+
+/* Make inputs stretch on mobile */
+label {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+.calculatebtn {
+    margin-top: 20px;
+}
+
+.calculatebtn button {
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: teal;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.result {
+    margin-top: 20px;
+    font-size: 18px;
+    font-family: "rockwell";
+    background-color: #d0f0c0;
+    padding: 15px;
+    width: 90%;
+    max-width: 600px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+
+/* Media query for small screens */
+@media (max-width: 600px) {
+    .title {
+        font-size: 1.5rem;
+        letter-spacing: 2px;
+    }
+
+    .useramount,
+    .usertenure {
+        font-size: 0.9rem;
+    }
+
+    label {
+        gap: 6px;
+    }
+
+    input {
+        font-size: 0.95rem;
+    }
+}
